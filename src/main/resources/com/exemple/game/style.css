@@ -1,7 +1,7 @@
 /* Style pour le TabPane */
 .tab-pane {
     -fx-background-color: #15181e;
-    -fx-font-size: 12px;
+    -fx-font-size: 13px;
     -fx-font-family: "Arial", sans-serif;
     -fx-text-fill: #11b969;
 }
@@ -21,11 +21,6 @@
     -fx-text-fill: #11b969;
     -fx-font-size: 14px;
 }
-/*
-.tab-pane .tab:focused {
-    -fx-border-color: #62f24b;
-}
- */
 
 .tab-pane .tab:selected {
     -fx-background-color: #15181e;
@@ -35,7 +30,7 @@
 }
 
 .anchor-pane {
-    -fx-background-color: #ffffff;
+    -fx-background-color: #15181e;
     -fx-padding: 10;
 }
 

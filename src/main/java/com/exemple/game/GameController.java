@@ -21,6 +21,9 @@ public class GameController {
     private int gameRedValue, gameGreenValue, gameBlueValue;
     private int gameFrequency, gameThreshold;
     private final Random rand = new Random();
+    private boolean musicState = false;
+
+    private final BackgroundMusic backgroundMusic = new BackgroundMusic("src/main/resources/com/exemple/game/perlinnoise_withdrums_loop.mp3");
 
     @FXML private TabPane root;
 
@@ -249,6 +252,9 @@ public class GameController {
 
     @FXML
     public void initialize() {
+        backgroundMusic.play();
+        musicState = true;
+
         redValueTextField.textProperty().addListener(new ChangeListener<String>() {
             @Override
             public void changed(ObservableValue<? extends String> observable, String oldValue, String newValue) {
@@ -300,7 +306,7 @@ public class GameController {
         hint1PercentageLabel.setVisible(true);
     }
 
-        @FXML public void onHint2ButtonClick(ActionEvent event) {
+    @FXML public void onHint2ButtonClick(ActionEvent event) {
         hintRedValueLabel.setVisible(true);
         hintGreenValueLabel.setVisible(true);
         hintBlueValueLabel.setVisible(true);
@@ -308,7 +314,19 @@ public class GameController {
         hintFrequencyLabel.setVisible(true);
     }
 
+    @FXML public void onMusicButtonClick(ActionEvent event) {
+        if (musicState) {
+            backgroundMusic.stop();
+            musicState = false;
+        }
+        else {
+            backgroundMusic.play();
+            musicState = true;
+        }
+    }
+
     @FXML public void onQuit(Event event) {
+        backgroundMusic.stop();
         Stage stage = (Stage) root.getScene().getWindow();
         stage.close();
     }
@@ -367,7 +385,6 @@ public class GameController {
 
     private void colorGenerator() {
         int colorNumber = rand.nextInt(3);
-        System.out.println(colorNumber);
         switch (colorNumber) {
             case 0:
                 gameRedValue = rand.nextInt(255);

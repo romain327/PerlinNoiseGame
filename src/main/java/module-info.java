@@ -11,6 +11,7 @@ module com.exemple.game {
     requires eu.hansolo.tilesfx;
     requires java.desktop;
     requires javafx.swing;
+    requires javafx.media;
 
     opens com.exemple.game to javafx.fxml;
     exports com.exemple.game;
