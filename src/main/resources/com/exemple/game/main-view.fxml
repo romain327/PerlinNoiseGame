@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ProgressBar?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<TabPane fx:id="root" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="720.0" prefWidth="1280.0" tabClosingPolicy="UNAVAILABLE" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.exemple.game.GameController">
+  <tabs>
+    <Tab fx:id="landingTab" styleClass="tab-label" text="Bienvenu">
+      <content>
+        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+               <children>
+                  <Label layoutX="355.0" layoutY="154.0" text="Bienvenu sur ce petit jeu éducatif réalisé dans le cadre de la Polytech Game Jam !">
+                     <font>
+                        <Font size="15.0" />
+                     </font>
+                  </Label>
+                  <Label layoutX="28.0" layoutY="222.0" text="Une Game Jam est un concours de création de jeux vidéos. Les participants se voient imposés un thème et ont le weekend pour créer un jeu vidéo sur le thème." />
+                  <Label layoutX="28.0" layoutY="249.0" text="Le thème de cette Game Jam était &quot;Transformtion&quot;" />
+                  <Label layoutX="28.0" layoutY="275.0" text="Le but de ce petit jeu est de vous introduire au bruit de Perlin, en vous faisant &quot;transformer&quot; une image." />
+                  <Label layoutX="28.0" layoutY="305.0" text="Pour quelques explications, cliquez sur l'onglet &quot;Le bruit de Perlin&quot;" />
+                  <Label layoutX="28.0" layoutY="323.0" text="Pour jouer, cliquez sur l'ongler &quot;Le Jeu&quot;" />
+               </children></AnchorPane>
+      </content>
+    </Tab>
+    <Tab fx:id="gameTab" onSelectionChanged="#onGameTabClick" styleClass="tab-label" text="Le Jeu">
+      <content>
+        <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+               <children>
+                  <Button fx:id="newGameButton" layoutX="32.0" layoutY="29.0" mnemonicParsing="false" onAction="#onNewGameButtonClick" text="Nouveau jeu" />
+                  <ImageView fx:id="playerGeneratedImage" fitHeight="300.0" fitWidth="512.0" layoutX="728.0" layoutY="29.0" pickOnBounds="true" preserveRatio="true" />
+                  <ImageView fx:id="gameGeneratedImage" fitHeight="300.0" fitWidth="512.0" layoutX="728.0" layoutY="355.0" pickOnBounds="true" preserveRatio="true" />
+                  <Label fx:id="redValueLabel" layoutX="36.0" layoutY="105.0" text="Valeur de rouge" />
+                  <Label fx:id="greenValueLabel" layoutX="36.0" layoutY="139.0" text="Valeur de vert" />
+                  <Label fx:id="blueValueLabel" layoutX="36.0" layoutY="175.0" text="Valeur de bleu" />
+                  <TextField fx:id="redValueTextField" layoutX="159.0" layoutY="101.0" onInputMethodTextChanged="#updatePlayerGeneratedImage" prefHeight="26.0" prefWidth="254.0" />
+                  <TextField fx:id="greenValueTextField" layoutX="159.0" layoutY="135.0" onInputMethodTextChanged="#updatePlayerGeneratedImage" prefHeight="26.0" prefWidth="254.0" />
+                  <TextField fx:id="blueValueTextField" layoutX="159.0" layoutY="171.0" onInputMethodTextChanged="#updatePlayerGeneratedImage" prefHeight="26.0" prefWidth="254.0" />
+                  <Label fx:id="frequencyLabel" layoutX="34.0" layoutY="216.0" text="Fréquence" />
+                  <TextField fx:id="frequencyTextField" layoutX="159.0" layoutY="212.0" onInputMethodTextChanged="#updatePlayerGeneratedImage" prefHeight="26.0" prefWidth="254.0" />
+                  <Label fx:id="errorLabel" layoutX="159.0" layoutY="69.0" text="Label" />
+                  <Label fx:id="thresholdLabel" layoutX="36.0" layoutY="255.0" text="Seuil" />
+                  <TextField fx:id="thresholdTextField" layoutX="159.0" layoutY="251.0" onInputMethodTextChanged="#updatePlayerGeneratedImage" prefHeight="26.0" prefWidth="254.0" />
+                  <Label fx:id="hintRedValueLabel" layoutX="441.0" layoutY="105.0" text="Label" />
+                  <Label fx:id="hintGreenValueLabel" layoutX="441.0" layoutY="139.0" text="Label" />
+                  <Label fx:id="hintBlueValueLabel" layoutX="441.0" layoutY="175.0" text="Label" />
+                  <Label fx:id="hintFrequencyLabel" layoutX="441.0" layoutY="216.0" text="Label" />
+                  <Label fx:id="hintThresholdLabel" layoutX="441.0" layoutY="255.0" text="Label" />
+                  <Label fx:id="winLabel" layoutX="424.0" layoutY="511.0" text="Label" />
+                  <Button fx:id="hint1Button" layoutX="32.0" layoutY="315.0" mnemonicParsing="false" onAction="#onHint1ButtonClick" text="Indice 1" />
+                  <Button fx:id="hint2Button" layoutX="33.0" layoutY="355.0" mnemonicParsing="false" onAction="#onHint2ButtonClick" text="Indice 2" />
+                  <ProgressBar fx:id="hint1ProgressBar" layoutX="118.0" layoutY="319.0" prefHeight="20.0" prefWidth="290.0" progress="0.0" />
+                  <Label fx:id="hint1PercentageLabel" layoutX="441.0" layoutY="319.0" text="Label" />
+                  <Button fx:id="rageQuitButton" layoutX="32.0" layoutY="507.0" mnemonicParsing="false" onAction="#onRageQuitButtonClick" text="Bouton &quot;j'en ai marre&quot;" />
+                  <Label fx:id="rageQuitLabel" layoutX="35.0" layoutY="552.0" text="Label" />
+                  <Label fx:id="adviceLabel" layoutX="159.0" layoutY="33.0" text="Lorsque tous les champs seront remplis, votre image apparaitera !" />
+               </children></AnchorPane>
+      </content>
+    </Tab>
+      <Tab fx:id="perlinNoiseTab" onSelectionChanged="#onPerlinNoiseTabClick" styleClass="tab-label" text="Le bruit de Perlin">
+         <content>
+            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+               <children>
+                  <Label layoutX="37.0" layoutY="36.0" text="Le bruit de Perlin est une technique de génération procédurale de textures, inventée par Ken Perlin en 1983. Il est largement utilisé dans les domaines de l'infographie, des jeux vidéo," />
+                  <Label layoutX="37.0" layoutY="54.0" text="des simulations et des effets spéciaux pour créer des textures organiques et naturelles, comme des nuages, des terrains, des textures de pierre, de bois, ou des effets de bruit réalistes." />
+                  <Label layoutX="37.0" layoutY="72.0" text="Il est par exemple utilisé pour la génération des mondes dans le célèbre jeu vidéo &quot;Minecraft&quot;." />
+                  <Label layoutX="37.0" layoutY="138.0" text="Dans son implémentation pour ce jeu, le bruit de Perlin vous donne accès à 5 paramètres :" />
+                  <Label layoutX="60.0" layoutY="157.0" text="- valeurs de rouge, vert et bleu, qui vont vous permettre de répliquer la couleur de l'image" />
+                  <Label layoutX="37.0" layoutY="105.0" text="Le but de ce petit jeu va etre de jouer avec le bruit de Perlin pour essayer de reproduire une image générée avec du bruit de Perlin." />
+                  <Label layoutX="60.0" layoutY="175.0" text="- la fréquence, qui vous permettra de gérer lenombre de &quot;taches&quot; générées, et plus les taches sont nombreuses, plus elles sont petites." />
+                  <Label layoutX="60.0" layoutY="193.0" text="- le seuil, qui vous permettra de gérer la quantité de couleur sur l'image, plus le seuil est élevé, plus il y a de noir dans l'image" />
+                  <ImageView fx:id="perlinImage1" fitHeight="200.0" fitWidth="200.0" layoutX="50.0" layoutY="407.0" pickOnBounds="true" preserveRatio="true" />
+                  <ImageView fx:id="perlinImage2" fitHeight="200.0" fitWidth="200.0" layoutX="350.0" layoutY="407.0" pickOnBounds="true" preserveRatio="true" />
+                  <ImageView fx:id="perlinImage3" fitHeight="200.0" fitWidth="200.0" layoutX="650.0" layoutY="407.0" pickOnBounds="true" preserveRatio="true" />
+                  <ImageView fx:id="perlinImage4" fitHeight="200.0" fitWidth="200.0" layoutX="950.0" layoutY="407.0" pickOnBounds="true" preserveRatio="true" />
+                  <Label layoutX="37.0" layoutY="256.0" text="Les valeurs qui ont permisent de générer les images ci-dessous sont respectivement (rouge, vert, bleu, fréquence, seuil)." />
+                  <Label layoutX="37.0" layoutY="274.0" text="Le rouge, vert et bleu sont des valeurs entre 0 et 255, la fréquence entre 1 et 100 et le seuil entre 40 et 80." />
+                  <Label layoutX="34.0" layoutY="313.0" text="On voit bien qu'entre la première image et la seconde, la fréquence augmente le nombre de taches ; entre la seconde et la troisième, le seuil définit la quantité de couleur, et qu'entre la première" />
+                  <Label layoutX="37.0" layoutY="335.0" text="et la dernière, les valeurs r, g et b ont changées la couleur de l'image." />
+                  <Label layoutX="91.0" layoutY="617.0" text="(200, 96, 168, 5, 50)" />
+                  <Label layoutX="388.0" layoutY="617.0" text="(200, 96, 168, 50, 50)" />
+                  <Label layoutX="688.0" layoutY="617.0" text="(200, 96, 168, 50, 70)" />
+                  <Label layoutX="991.0" layoutY="617.0" text="(50, 190, 220, 5, 50)" />
+               </children></AnchorPane>
+         </content>
+      </Tab>
+      <Tab fx:id="aboutTab" styleClass="tab-label" text="A propos">
+         <content>
+            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+               <children>
+                  <Label layoutX="27.0" layoutY="23.0" text="Ce jeu est codé en Java à l'aide de la librairie JavaFX." />
+                  <Label layoutX="27.0" layoutY="41.0" text="Le code est disponible sur github : " />
+                  <Hyperlink layoutX="236.0" layoutY="38.0" text="https://github.com/romain327/perlinNoiseGame" />
+               </children>
+            </AnchorPane>
+         </content>
+      </Tab>
+      <Tab fx:id="quitTab" onSelectionChanged="#onQuit" styleClass="tab-label" text="Quitter">
+         <content>
+            <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0" />
+         </content>
+      </Tab>
+  </tabs>
+</TabPane>

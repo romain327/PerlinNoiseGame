@@ -1,0 +1,95 @@
+/* Style pour le TabPane */
+.tab-pane {
+    -fx-background-color: #15181e;
+    -fx-font-size: 12px;
+    -fx-font-family: "Arial", sans-serif;
+    -fx-text-fill: #11b969;
+}
+
+.tab-pane .tab-header-area {
+    -fx-background-color: #15181e;
+    -fx-text-fill: #11b969;
+}
+
+.tab-pane .tab-header-background {
+    -fx-background-color: #15181e;
+    -fx-text-fill: #11b969;
+}
+
+.tab-pane .tab {
+    -fx-background-color: #212837;
+    -fx-text-fill: #11b969;
+    -fx-font-size: 14px;
+}
+/*
+.tab-pane .tab:focused {
+    -fx-border-color: #62f24b;
+}
+ */
+
+.tab-pane .tab:selected {
+    -fx-background-color: #15181e;
+    -fx-text-fill: #11b969;
+    -fx-font-weight: bold;
+    -fx-border-color: #11b969;
+}
+
+.anchor-pane {
+    -fx-background-color: #ffffff;
+    -fx-padding: 10;
+}
+
+.label {
+    -fx-text-fill: #11b969;
+    -fx-font-family: "Arial", sans-serif;
+}
+
+.button {
+    -fx-background-color: #15181e;
+    -fx-text-fill: #11b969;
+    -fx-font-size: 12px;
+    -fx-font-family: "Arial", sans-serif;
+    -fx-padding: 10 20 10 20;
+    -fx-border-radius: 8px;
+    -fx-border-color: #11b969;
+}
+
+.button:hover {
+    -fx-border-color: #62f24b;
+}
+
+.button:pressed {
+    -fx-background-color: #11b969;
+    -fx-text-fill: #15181e;
+}
+
+.text-field {
+    -fx-background-color: #15181e;
+    -fx-text-fill: #11b969;
+    -fx-font-size: 12px;
+    -fx-font-family: "Arial", sans-serif;
+    -fx-padding: 5 10 5 10;
+    -fx-border-color: #11b969;
+    -fx-border-width: 1;
+    -fx-border-radius: 8;
+}
+
+.text-field:focused {
+    -fx-border-color: #62f24b;
+}
+
+.progress-bar {
+    -fx-background-color: #15181e;
+    -fx-background-radius: 8;
+    -fx-border-color: #11b969;
+}
+
+.progress-bar .bar {
+    -fx-background-color: #11b969;
+    -fx-background-radius: 8;
+}
+
+.tab-label {
+    -fx-text-fill: #11b969;
+    color: #11b969;
+}
